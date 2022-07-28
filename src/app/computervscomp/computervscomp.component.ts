@@ -10,21 +10,6 @@ export class ComputervscompComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
-    for (let i = 0; i <= 10; i++) {
-      setTimeout(() => {
-        const randomNum = Math.floor(Math.random() * 3);
-        this.userSelected = this.compWeapons[randomNum];
-        console.log(this.userSelected);
-        this.checkResult();
-      }, 1000);
-      setTimeout(() => {
-        const randomNum = Math.floor(Math.random() * 3);
-        this.compSelected = this.compWeapons[randomNum];
-        console.log(this.compSelected);
-        this.checkResult();
-      }, 2000);
-    }
   }
   userScore = 0;
   compScore = 0;
@@ -38,8 +23,16 @@ export class ComputervscompComponent implements OnInit {
     'scissors'
   ];
 
-  userPick(userWeapon: string): void {
-   
+  userPick(): void {
+    const randomNum = Math.floor(Math.random() * 3);
+    this.userSelected = this.compWeapons[randomNum];
+        this.checkResult();
+
+    const randomNums = Math.floor(Math.random() * 3);
+    this.compSelected = this.compWeapons[randomNums];
+        this.checkResult();
+
+
   }
 
   clearField() {
@@ -55,7 +48,7 @@ export class ComputervscompComponent implements OnInit {
     this.userSelected = user;
     this.compSelected = comp;
     this.action = 'beats';
-    this.status = '. You win!';
+    this.status = '. Computer1 win!';
     this.clearField();
   }
 
@@ -65,7 +58,7 @@ export class ComputervscompComponent implements OnInit {
     this.userSelected = user;
     this.compSelected = comp;
     this.action = 'loses to';
-    this.status = '. You lose!';
+    this.status = '. Computer1 lose!';
     this.clearField();
   }
 
@@ -73,7 +66,7 @@ export class ComputervscompComponent implements OnInit {
     this.userSelected = user;
     this.compSelected = comp;
     this.action = 'and';
-    this.status = '. You draw!';
+    this.status = '. Computer1 draw!';
     this.clearField();
   }
 
