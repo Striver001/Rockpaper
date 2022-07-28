@@ -1,0 +1,35 @@
+<div class="score-board mb-10">
+    <div class="badge" id="user-label">user : {{userSelected}}</div>
+    <div class="badge" id="comp-label">comp : {{compSelected}}</div>
+    <span id="user-score">{{userScore}}</span>:<span id="comp-score">{{compScore}}</span>
+  </div>
+
+  <div class="result">
+    <p *ngIf="status">{{userSelected}} {{action}} {{compSelected}}{{status}} </p>
+  </div>
+
+  <div class="choices">
+    <div  class="choice" id="rock">
+      <!-- <img src="../assets/rock.png" (click)='userPick("rock")'> -->
+      <!-- <i (click)='userPick("rock")' class="fa fa-hand-rock-o"></i> -->
+      <!-- <i class="fa fa-hand-rock-o" aria-hidden="true"></i> -->
+      <!-- <button  class="button">Rock</button> -->
+      <button (click)='userPick("rock")' type="button" class="btn btn-success">Rock</button>
+    </div>
+    <div class="choice" id="paper">
+      <!-- <i (click)='userPick("paper")' class="fa fa-hand-/paper-o"></i> -->
+      <!-- <button class="button">paper</button>/ -->
+      <button (click)='userPick("paper")' type="button" class="btn btn-success">Paper</button>
+      <!-- <img src="../assets/paper.png" (click)='userPick("")'> -->
+    </div>
+    <div class="choice" id="scissors">
+      <!-- <i (click)='userPick("scissors")' class="fa fa-hand-scissors-o"></i> -->
+      <!-- <button class="button">scissors</button> -->
+      <button (click)='userPick("scissors")' type="button" class="btn btn-success">Scissors</button>
+
+      <!-- <img src="../assets/sessior.png" (click)='userPick("scissors")'> -->
+    </div>
+  </div>
+
+  <p id="action-message" *ngIf="!status">You Can Make Your Move</p>
+  <p id="action-message" *ngIf="status">Wait...</p>
